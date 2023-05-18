@@ -3,6 +3,8 @@ import axios from "axios";
 const BASE_URL = 'https://youtube138.p.rapidapi.com';
 const TOKEN = import.meta.env.VITE_APP_YOUTUBE_API_KEY;
 
+console.log(TOKEN);
+
 
 const options = {
     params: {
