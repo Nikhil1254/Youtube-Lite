@@ -56,53 +56,58 @@ const VideoDetails = () => {
               style={{ backgroundColor: "black" }}
             />
           </div>
-          <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2">
-            {video?.title}
-          </div>
-          <div className="flex justify-between flex-col md:flex-row mt-4">
-            <div className="flex">
-              <div className="flex items-start">
-                <div className="flex h-11 w-11 rounded-full overflow-hidden">
-                  <img src={video?.author?.avatar[0]?.url} />
-                </div>
+          {video?.title && (
+            <>
+              <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2">
+                {video?.title}
               </div>
-              <div className="flex flex-col ml-3">
-                <div className="text-white text-md font-semibold flex items-center">
-                  {video?.author?.title}
-                  {video?.author?.badges?.[0]?.type === "VERIFIED_CHANNEL" && (
-                    <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] ml-1" />
+              <div className="flex justify-between flex-col md:flex-row mt-4">
+                <div className="flex">
+                  <div className="flex items-start">
+                    <div className="flex h-11 w-11 rounded-full overflow-hidden">
+                      <img src={video?.author?.avatar[0]?.url} />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-3">
+                    <div className="text-white text-md font-semibold flex items-center">
+                      {video?.author?.title}
+                      {video?.author?.badges?.[0]?.type ===
+                        "VERIFIED_CHANNEL" && (
+                        <BsFillCheckCircleFill className="text-white/[0.5] text-[12px] ml-1" />
+                      )}
+                    </div>
+
+                    <div className="text-white/[0.7] text-sm">
+                      {video?.author?.stats?.subscribersText}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex text-white mt-4 md:mt-0">
+                  {video?.stats?.likes && (
+                    <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]">
+                      <AiOutlineLike className="text-xl text-white mr-2" />
+                      <span>{`${abbreviateNumber(
+                        video?.stats?.likes,
+                        2
+                      )} Likes`}</span>
+                    </div>
+                  )}
+
+                  {video?.stats?.views && (
+                    <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15] ml-4">
+                      <>
+                        <AiOutlineLike className="text-xl text-white mr-2" />
+                        <span>{`${abbreviateNumber(
+                          video?.stats?.views,
+                          2
+                        )} views`}</span>
+                      </>
+                    </div>
                   )}
                 </div>
-
-                <div className="text-white/[0.7] text-sm">
-                  {video?.author?.stats?.subscribersText}
-                </div>
               </div>
-            </div>
-            <div className="flex text-white mt-4 md:mt-0">
-              {video?.stats?.likes && (
-                <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]">
-                  <AiOutlineLike className="text-xl text-white mr-2" />
-                  <span>{`${abbreviateNumber(
-                    video?.stats?.likes,
-                    2
-                  )} Likes`}</span>
-                </div>
-              )}
-
-              {video?.stats?.views && (
-                <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15] ml-4">
-                  <>
-                    <AiOutlineLike className="text-xl text-white mr-2" />
-                    <span>{`${abbreviateNumber(
-                      video?.stats?.views,
-                      2
-                    )} views`}</span>
-                  </>
-                </div>
-              )}
-            </div>
-          </div>
+            </>
+          )}
         </div>
 
         <div className="flex flex-col py-6 px-4 overflow-y-auto lg:w-[350px] xl:w-[400px]">
