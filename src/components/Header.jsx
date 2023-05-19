@@ -29,6 +29,7 @@ const Header = () => {
   };
 
   const mobileMenuToggle = () => {
+    console.log("Mobile Menu called")
     setMobileMenu(!mobileMenu);
   };
 
