@@ -60,7 +60,11 @@ const Header = () => {
             src={ytLogo}
             alt="Youtube"
           />
-          <img className="h-full md:hidden mx-2" src={ytLogoMobile} alt="Youtube" />
+          <img
+            className="h-full md:hidden mx-2"
+            src={ytLogoMobile}
+            alt="Youtube"
+          />
         </Link>
       </div>
 
@@ -92,9 +96,9 @@ const Header = () => {
           <div className="flex items-center justify-center ml-2 h-10 w-10 rounded-full hover:bg-[#303030]/[0.6] cursor-pointer">
             <FiBell className="text-white text-xl" />
           </div>
-          <div className="flex items-center h-8 w-8 overflow-hidden rounded-full md:ml-4 cursor-pointer">
-            <img src="https://randomuser.me/api/portraits/med/men/75.jpg"  />
-          </div>
+        </div>
+        <div className="flex items-center h-8 w-8 overflow-hidden rounded-full md:ml-4 cursor-pointer">
+          <img src="https://randomuser.me/api/portraits/med/men/75.jpg" />
         </div>
       </div>
     </div>
